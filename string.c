@@ -24,18 +24,31 @@ char * stringCopy(char *dest, char *source){
 
 
 //-------stringNCat
+char * stringNCat(char *str1, char *str2, int n){
+  int i;
+  for(i = 0; i < n && i < strlen(str1); i++){
+    
+  }
+}
+
 
 int main(){
   char str1[] = "whattheheck";
   char str2[] = "yup";
+  printf("str1 = %s\n", str1);
+
+
   
   //----stringLength
-  printf("stringLength - %s: %d\n",str1,stringLength(str1));
-  printf("strlen - %s: %d\n\n",str1,strlen(str1));
+  printf("stringLength - %s: %d\n\n",str1,stringLength(str1));
+  //printf("strlen - %s: %d\n\n",str1,strlen(str1));
 
   //----stringCopy
-  printf("str1 = %s\n", str1);
   printf("stringCopy str2 to str1: %s\n\n", stringCopy(str1,str2));
   //printf("strcpy: %s\n\n", strcpy(str1,str2));
+
+
+
+  
   return 0;
 }
