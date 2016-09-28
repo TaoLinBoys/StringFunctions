@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-//-------StringLength
-int StringLength(char *str){
+//-------stringLength
+int stringLength(char *str){
   int length=0;
   while(*str != '\0'){
     length++;
@@ -13,16 +13,29 @@ int StringLength(char *str){
 }
 
 
+//-------stringCopy
+char * stringCopy(char *dest, char *source){
+  int i;
+  for(i = 0; i < strlen(source)+1; i++){
+    dest[i] = source[i];
+  }
+  return dest;
+}
 
 
-
+//-------stringNCat
 
 int main(){
-  char str[] = "whattheheck";
+  char str1[] = "whattheheck";
+  char str2[] = "yup";
   
-  //----StringLength
-  printf("StringLength - %s: %d\n",str,StringLength(str));
-  printf("strlen - %s: %d\n",str,strlen(str));
-  
+  //----stringLength
+  printf("stringLength - %s: %d\n",str1,stringLength(str1));
+  printf("strlen - %s: %d\n\n",str1,strlen(str1));
+
+  //----stringCopy
+  printf("str1 = %s\n", str1);
+  printf("stringCopy str2 to str1: %s\n\n", stringCopy(str1,str2));
+  //printf("strcpy: %s\n\n", strcpy(str1,str2));
   return 0;
 }
