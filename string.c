@@ -35,6 +35,40 @@ char * stringNCat(char *dest, char *source, int n){
 }
 
 
+//-------stringCmp
+int stringCmp(char *str1, char *str2){
+  int shorterStr;
+  if(strlen(str1) > strlen(str2)){
+    shorterStr = strlen(str1);
+  }else{
+    shorterStr = strlen(str2);
+  }
+
+  int i;
+  for(i = 0; i < shorterStr; i++){
+    if(str1[i] > str2[i]){
+      return 1;
+    }else if(str1[i] < str2[i]){
+      return -1;
+    }
+  }
+  if(str1[shorterStr] != 0){
+    return 1;
+  }else if(str2[shorterStr] != 0){
+    return -1;
+  }else{
+    return 0;
+  }
+}
+
+
+//-------stringChar
+char stringChar(char *str, char c){
+  return 'a';
+}
+
+
+
 int main(){
   char str1[] = "whattheheck";
   char str2[] = "yup";
@@ -61,6 +95,17 @@ int main(){
   stringNCat(str3 ,str4, 2);
   printf("str3 after stringNCat: %s\n\n", str3);
 
+
+
+  //______________stringCmp
+  char str5[] = "abcdEfgh";
+  char str6[] = "abcde";
+  printf("str5: %s \nstr6: %s\n", str5, str6);
+  printf("comparing str5 and str6: %d\n\n",stringCmp(str5,str6));
+
+
+  //_____________stringChar
+  
   
   return 0;
 }
