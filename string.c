@@ -26,8 +26,10 @@ char * stringCopy(char *dest, char *source){
 //-------stringNCat
 char * stringNCat(char *dest, char *source, int n){
   int i;
-  for(i = 0; i <= n && i < strlen(source)+1; i++){
-    dest[i + strlen(dest)] = source[i];
+  int destlen = strlen(dest);
+  
+  for(i = 0; i < n && i < strlen(source); i++){
+    dest[i + destlen] = source[i];
   }
   return dest;
 }
@@ -54,9 +56,9 @@ int main(){
 
   //_______________stringNCat
   char str3[200] = "hey its me";
-  char str4[200] = "mario";
+  char str4[200] = " mario";
   printf("str3: %s \nstr4: %s\n", str3, str4);
-  stringNCat(str3 ,str4, 5);
+  stringNCat(str3 ,str4, 2);
   printf("str3 after stringNCat: %s\n\n", str3);
 
   
