@@ -63,8 +63,16 @@ int stringCmp(char *str1, char *str2){
 
 
 //-------stringChar
-char stringChar(char *str, char c){
-  return 'a';
+char * stringChar(char *str, char c){
+  char *first = str;
+  int i;
+  for(i = 0; i < strlen(str)+1; i++){
+    if(str[i] == c){
+      return first;
+    }
+    first++;
+  }
+  return NULL;
 }
 
 
@@ -72,10 +80,11 @@ char stringChar(char *str, char c){
 int main(){
   char str1[] = "whattheheck";
   char str2[] = "yup";
+  printf("______stringLength+stringCopy______\n");
   printf("str1 = %s\nstr2 = %s\n\n", str1, str2);
   
   //_______________stringLength
-  printf("stringLength of %s: %d\n\n",str1,stringLength(str1));
+  printf("stringLength of str1: %d\n\n",stringLength(str1));
   //printf("strlen - %s: %d\n\n",str1,strlen(str1));
 
   //_______________stringCopy
@@ -89,15 +98,17 @@ int main(){
 
 
   //_______________stringNCat
+  printf("______stringNCat______\n");
   char str3[200] = "hey its me";
   char str4[200] = " mario";
-  printf("str3: %s \nstr4: %s\n", str3, str4);
-  stringNCat(str3 ,str4, 2);
+  printf("str3: %s \nstr4: %s \nn: %d", str3, str4, 4);
+  stringNCat(str3 ,str4, 4);
   printf("str3 after stringNCat: %s\n\n", str3);
 
 
 
   //______________stringCmp
+  printf("______stringCmp______\n");
   char str5[] = "abcdEfgh";
   char str6[] = "abcde";
   printf("str5: %s \nstr6: %s\n", str5, str6);
@@ -105,7 +116,10 @@ int main(){
 
 
   //_____________stringChar
-  
-  
+  printf("______stringChar______\n");
+  char str7[] = "abcdefgh";
+  char chr = 'f';
+  printf("str7: %s \nchr: %c\n", str7, chr);
+  printf("finding chr in str7: %s\n", stringChar(str7, chr));
   return 0;
 }
